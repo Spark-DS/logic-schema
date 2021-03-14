@@ -1,0 +1,10 @@
+Test suite source: SchemaComparisonParquetFileTest.scala
+
+The test Case4 passed, printing detail for debugging:
+
+isSame: false
+Detail: schema1 <--> schema2
+
+
+     /customer_id:                                                               type long <--> type integer
+------------------------------------------------------------------------------------------------------------------------

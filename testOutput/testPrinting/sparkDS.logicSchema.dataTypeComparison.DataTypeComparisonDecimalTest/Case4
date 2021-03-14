@@ -1,0 +1,8 @@
+Test suite source: DataTypeComparisonDecimalTest.scala
+
+The test Case4 passed, printing detail for debugging:
+
+isSame: false
+Detail: 
+     /:                                                                          type decimal(9,2) <--> type decimal(7,1)
+------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,8 @@
+Test suite source: DataTypeComparisonDecimalArrayTest.scala
+
+The test Case3 passed, printing detail for debugging:
+
+isSame: false
+Detail: 
+     /[Array]:                                                                   type decimal(9,2) <--> type decimal(9,3)
+------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,8 @@
+Test suite source: DataTypeComparisonSimpleTypesTest.scala
+
+The test Case2 passed, printing detail for debugging:
+
+isSame: false
+Detail: 
+     /:                                                                          type boolean <--> type binary
+------------------------------------------------------------------------------------------------------------------------

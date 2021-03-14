@@ -1,0 +1,8 @@
+Spark-DS/logic-schema is a Scala library to create data specification and validation, help developing applications based on Apache Spark.
+
+Spark-DS/logic-schema follows the principal of code as specification and configuration, it enables developers to
+
+* Create Apache Spark data schema;
+* Specify constraints;
+* Compare Schemas;
+* Validate data against schema.

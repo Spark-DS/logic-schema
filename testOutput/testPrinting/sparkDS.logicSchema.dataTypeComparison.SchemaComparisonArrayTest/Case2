@@ -1,0 +1,12 @@
+Test suite source: SchemaComparisonArrayTest.scala
+
+The test Case2 passed, printing detail for debugging:
+
+The test Case 2 passed, printing detail for debugging:
+isSame: false
+Detail: schema1 <--> schema1FldDiffType
+
+
+
+     /arrayTypeField[Array]/timestampField1:                                     type timestamp <--> type date
+------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,10 @@
+Test suite source: SchemaComparisonTest.scala
+
+The test Case2 passed, printing detail for debugging:
+
+isSame: false
+Detail: schema1 <--> schema1FldDiffType
+
+
+     /binaryField1:                                                              type binary <--> type boolean
+------------------------------------------------------------------------------------------------------------------------

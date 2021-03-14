@@ -1,0 +1,14 @@
+Test suite source: SchemaComparisonTest.scala
+
+The test Case3 passed, printing detail for debugging:
+
+isSame: false
+Detail: schema1 <--> schema2FldDiffTypeDiffName
+
+     /: Fields in [schema1] but not in [schema2FldDiffTypeDiffName]:
+         List(booleanField1, byteField1, calendarIntervalField1, dateField1, doubleField1, floatField1, integerField1, longField1, nullField1, shortField1, stringField1, timestampField1)
+     /: Fields not in [schema1] but in [schema2FldDiffTypeDiffName]:
+         List(booleanField2, byteField2, calendarIntervalField2, dateField2, doubleField2, floatField2, integerField2, longField2, nullField2, shortField2, stringField2, timestampField2)
+
+     /binaryField1:                                                              type binary <--> type boolean
+------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,13 @@
+Test suite source: SchemaComparisonParquetFileTest.scala
+
+The test Case3 passed, printing detail for debugging:
+
+isSame: false
+Detail: schema1 <--> schema2
+
+
+     /interactions[Array]: Fields in [schema1] but not in [schema2]:
+         List(description)
+     /interactions[Array]: Fields not in [schema1] but in [schema2]:
+         List(description_xxx)
+------------------------------------------------------------------------------------------------------------------------

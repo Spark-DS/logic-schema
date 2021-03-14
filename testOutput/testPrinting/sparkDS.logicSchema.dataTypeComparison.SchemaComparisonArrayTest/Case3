@@ -1,0 +1,15 @@
+Test suite source: SchemaComparisonArrayTest.scala
+
+The test Case3 passed, printing detail for debugging:
+
+isSame: false
+Detail: schema1 <--> schema2FldDiffTypeDiffName
+
+     /: Fields in [schema1] but not in [schema2FldDiffTypeDiffName]:
+         List(binaryField1, booleanField1, byteField1)
+
+     /arrayTypeField[Array]: Fields in [schema1] but not in [schema2FldDiffTypeDiffName]:
+         List(longField1, nullField1, shortField1, stringField1, timestampField1)
+     /arrayTypeField[Array]: Fields not in [schema1] but in [schema2FldDiffTypeDiffName]:
+         List(integerField2, longField2, nullField2, shortField2, stringField2, timestampField2)
+------------------------------------------------------------------------------------------------------------------------

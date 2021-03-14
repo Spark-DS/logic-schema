@@ -1,0 +1,9 @@
+Test suite source: DataTypeComparisonStructTest.scala
+
+The test Case2 passed, printing detail for debugging:
+
+isSame: false
+Detail: 
+
+     /binaryField1:                                                              type binary <--> type boolean
+------------------------------------------------------------------------------------------------------------------------
