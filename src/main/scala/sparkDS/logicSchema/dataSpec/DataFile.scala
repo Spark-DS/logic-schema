@@ -19,7 +19,6 @@ package sparkDS.logicSchema.dataSpec
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.functions.expr
 import org.apache.spark.sql.types._
-import sparkDS.logicSchema.dataSpec.columnType.ColumnBase
 import sparkDS.logicSchema.dataValidation.RecordValidator
 
 import scala.collection.mutable
@@ -27,7 +26,7 @@ import scala.collection.mutable
 abstract class DataFile
 (
   val name: String,
-  val columns: Seq[ColumnBase]
+  val columns: Seq[ColumnType]
 ) {
   val schema: StructType = StructType(columns.map(col => col.structField))
 
@@ -74,7 +73,7 @@ abstract class DataFile
    *
    * @return
    */
-  def _sqlColumnValidationCode(columns: Seq[ColumnBase]): String = {
+  def _sqlColumnValidationCode(columns: Seq[ColumnType]): String = {
     columns.size match {
       case 0 => throw new RuntimeException("columns can't be empty")
       case 1 => columns.head.sqlValidationCode()

@@ -16,15 +16,23 @@
 
 package sparkDS.logicSchema.dataValidation
 
-import sparkDS.logicSchema.dataSpec.columnType.StringColumn
+import sparkDS.logicSchema.dataSpec.ColumnType
+import sparkDS.logicSchema.dataSpec.sysColumnTypes.StringColumnType
+
+//@formatter:off
+class ValidatorType     extends StringColumnType("validator_type")
+class ValidationTarget  extends StringColumnType("validation_target")
+class ValidatorName     extends StringColumnType("validator_name")
+class ValidationMessage extends StringColumnType("validation_message")
+
+class ValidationResultColumn extends ColumnType("logic_validation_result", ValidationResultColumnDataTypes.ValidationResultStruct)
 
 object ValidationResultColumns {
-  //@formatter:off
-  val validator_type                                      = new StringColumn("validator_type")
-  val validation_target                                   = new StringColumn("validation_target")
-  val validator_name                                      = new StringColumn("validator_name")
-  val validation_message                                  = new StringColumn("validation_message")
+  val validator_type          = new ValidatorType()
+  val validation_target       = new ValidationTarget()
+  val validator_name          = new ValidatorName()
+  val validation_message      = new ValidationMessage()
 
-  val logic_validation_result                             = new ValidationResultColumn("logic_validation_result")
-  //@formatter:on
+  val logic_validation_result = new ValidationResultColumn()
 }
+//@formatter:on

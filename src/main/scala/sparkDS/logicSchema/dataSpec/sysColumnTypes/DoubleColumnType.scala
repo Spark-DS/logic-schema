@@ -14,16 +14,13 @@
  * limitations under the License.
  */
 
-package sparkDS.logicSchema.dataValidation
+package sparkDS.logicSchema.dataSpec.sysColumnTypes
 
-import org.apache.spark.sql.types.{DataTypes, StructField, StructType}
+import org.apache.spark.sql.types.DataTypes
+import sparkDS.logicSchema.dataSpec.{ColumnType, ColumnDataType}
 
-object ValidationResultDataTypes {
-  val ValidationResultStruct: StructType = DataTypes.createStructType(
-    List[StructField](
-      ValidationResultColumns.validator_type.structField,
-      ValidationResultColumns.validator_name.structField,
-      ValidationResultColumns.validation_target.structField,
-      ValidationResultColumns.validation_message.structField
-    ).toArray)
+abstract class DoubleColumnType
+(
+  name: String
+) extends ColumnType(name, new ColumnDataType("double", DataTypes.DoubleType)) {
 }

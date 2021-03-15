@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-package sparkDS.logicSchema.dataSpec.columnType
+package sparkDS.logicSchema.dataSpec.sysColumnTypes
 
 import org.apache.spark.sql.types.DataTypes
+import sparkDS.logicSchema.dataSpec.{ColumnType, ColumnDataType}
 
-class BooleanColumn
+abstract class ShortColumnType
 (
   name: String
-) extends ColumnBase(name, DataTypes.BooleanType) {
+) extends ColumnType(name, new ColumnDataType("short", DataTypes.ShortType)) {
 }

@@ -14,12 +14,14 @@
  * limitations under the License.
  */
 
-package sparkDS.logicSchema.dataSpec.columnType
+package sparkDS.logicSchema.dataSpec.sysColumnTypes
 
 import org.apache.spark.sql.types.DataTypes
+import sparkDS.logicSchema.dataSpec.{ColumnType, ColumnDataType}
 
-class ShortColumn
+@deprecated("This class used the default precision and scale, specific column type like PriceAmountColumn should be used")
+abstract class DecimalColumnType
 (
   name: String
-) extends ColumnBase(name, DataTypes.ShortType) {
+) extends ColumnType(name, new ColumnDataType("decimal", DataTypes.createDecimalType())) {
 }

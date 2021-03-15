@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-package sparkDS.logicSchema.dataSpec.columnType
+package sparkDS.logicSchema.dataSpec.sysColumnTypes
 
 import org.apache.spark.sql.types.DataTypes
+import sparkDS.logicSchema.dataSpec.{ColumnType, ColumnDataType}
 
-class DateColumn
+abstract class DateColumnType
 (
   name: String
-) extends ColumnBase(name, DataTypes.DateType) {
+) extends ColumnType(name, new ColumnDataType("date", DataTypes.DateType)) {
 }

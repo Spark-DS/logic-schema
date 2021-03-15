@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package sparkDS.logicSchema.dataSpec.columnType
+package sparkDS.logicSchema.dataSpec.sysColumnTypes
 
 import org.apache.spark.sql.types.DataTypes
+import sparkDS.logicSchema.dataSpec.{ColumnType, ColumnDataType}
 
-class CalendarIntervalColumn
+abstract class BinaryColumnType
 (
   name: String
-) extends ColumnBase(name, DataTypes.CalendarIntervalType) {
-}
+) extends ColumnType(name, new ColumnDataType("binary", DataTypes.BinaryType))

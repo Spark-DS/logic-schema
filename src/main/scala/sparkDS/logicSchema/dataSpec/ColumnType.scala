@@ -14,19 +14,32 @@
  * limitations under the License.
  */
 
-package sparkDS.logicSchema.dataSpec.columnType
+package sparkDS.logicSchema.dataSpec
 
 import org.apache.spark.sql.types._
 import sparkDS.logicSchema.dataValidation.ColumnValidator
 
 import scala.collection.mutable
 
-class ColumnBase
+/**
+ * Hold info of data types, validators.
+ *
+ * @param name
+ * @param columnDataType
+ */
+abstract class ColumnType
 (
   val name: String,
-  val dt: DataType
+  val columnDataType: ColumnDataType
 ) {
-  val structField: StructField = DataTypes.createStructField(name, dt, true)
+  val sqlType: String = columnDataType.sqlType
+
+  /**
+   * Used for construct schema
+   */
+  val structField: StructField = DataTypes.createStructField(name, columnDataType.dataType, true)
+
+  def isKey: Boolean = _isKey
 
   def addColumnValidator(validator: ColumnValidator): mutable.Seq[ColumnValidator] = {
     _sqlCodeUpdated = false
@@ -66,6 +79,7 @@ class ColumnBase
   override def toString: String = name
 
   // Private members
+  private var _isKey: Boolean = false
   private val _columnValidators: mutable.Buffer[ColumnValidator] = mutable.Buffer[ColumnValidator]()
   private var _sqlCodeUpdated: Boolean = false
   private var _sqlCode: String = _

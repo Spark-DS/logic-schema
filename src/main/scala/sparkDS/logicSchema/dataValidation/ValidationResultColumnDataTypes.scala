@@ -16,6 +16,19 @@
 
 package sparkDS.logicSchema.dataValidation
 
-import sparkDS.logicSchema.dataSpec.columnType.ColumnBase
+import org.apache.spark.sql.types.{DataTypes, StructField}
+import sparkDS.logicSchema.dataSpec.ColumnDataType
 
-class ValidationResultColumn(name: String) extends ColumnBase(name, ValidationResultDataTypes.ValidationResultStruct)
+object ValidationResultColumnDataTypes {
+  val ValidationResultStruct =
+    new ColumnDataType(
+      null,
+      DataTypes.createStructType(
+        List[StructField](
+          ValidationResultColumns.validator_type.structField,
+          ValidationResultColumns.validator_name.structField,
+          ValidationResultColumns.validation_target.structField,
+          ValidationResultColumns.validation_message.structField
+        ).toArray)
+    )
+}
