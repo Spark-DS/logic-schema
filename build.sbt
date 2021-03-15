@@ -2,7 +2,7 @@ import sbt.url
 
 organization := "com.github.spark-ds"
 name := "logic-schema"
-version := "0.0.2-SNAPSHOT"
+version := "0.0.3"
 
 homepage := Option(url("https://github.com/spark-ds/logic-schema"))
 licenses := Seq("Apache-2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0"))
