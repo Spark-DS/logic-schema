@@ -21,6 +21,8 @@ import sparkDS.logicSchema.dataSpec.{ColumnType, ColumnDataType}
 
 abstract class IntegerColumnType
 (
-  name: String
-) extends ColumnType(name, new ColumnDataType("int", DataTypes.IntegerType)) {
+  name: String,
+  isKey: Boolean
+) extends ColumnType(name, isKey, new ColumnDataType("int", DataTypes.IntegerType)) {
+  def this(name: String) = this(name, false)
 }

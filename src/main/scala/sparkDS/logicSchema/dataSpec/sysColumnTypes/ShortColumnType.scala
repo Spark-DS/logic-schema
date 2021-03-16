@@ -21,6 +21,8 @@ import sparkDS.logicSchema.dataSpec.{ColumnType, ColumnDataType}
 
 abstract class ShortColumnType
 (
-  name: String
-) extends ColumnType(name, new ColumnDataType("short", DataTypes.ShortType)) {
+  name: String,
+  isKey: Boolean
+) extends ColumnType(name, isKey, new ColumnDataType("short", DataTypes.ShortType)) {
+  def this(name: String) = this(name, false)
 }

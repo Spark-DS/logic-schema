@@ -21,6 +21,8 @@ import sparkDS.logicSchema.dataSpec.{ColumnType, ColumnDataType}
 
 abstract class CalendarIntervalColumnType
 (
-  name: String
-) extends ColumnType(name, new ColumnDataType("interval", DataTypes.CalendarIntervalType)) {
+  name: String,
+  isKey: Boolean
+) extends ColumnType(name, isKey, new ColumnDataType("interval", DataTypes.CalendarIntervalType)) {
+  def this(name: String) = this(name, false)
 }

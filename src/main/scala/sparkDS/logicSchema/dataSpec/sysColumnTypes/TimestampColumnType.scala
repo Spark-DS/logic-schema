@@ -21,6 +21,8 @@ import sparkDS.logicSchema.dataSpec.{ColumnType, ColumnDataType}
 
 abstract class TimestampColumnType
 (
-  name: String
-) extends ColumnType(name, new ColumnDataType("timestamp", DataTypes.TimestampType)) {
+  name: String,
+  isKey: Boolean
+) extends ColumnType(name, isKey, new ColumnDataType("timestamp", DataTypes.TimestampType)) {
+  def this(name: String) = this(name, false)
 }

@@ -22,6 +22,8 @@ import sparkDS.logicSchema.dataSpec.{ColumnType, ColumnDataType}
 @deprecated("This class used the default precision and scale, specific column type like PriceAmountColumn should be used")
 abstract class DecimalColumnType
 (
-  name: String
-) extends ColumnType(name, new ColumnDataType("decimal", DataTypes.createDecimalType())) {
+  name: String,
+  isKey: Boolean
+) extends ColumnType(name, isKey, new ColumnDataType("decimal", DataTypes.createDecimalType())) {
+  def this(name: String) = this(name, false)
 }

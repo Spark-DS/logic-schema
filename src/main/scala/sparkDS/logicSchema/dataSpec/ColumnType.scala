@@ -24,22 +24,26 @@ import scala.collection.mutable
 /**
  * Hold info of data types, validators.
  *
- * @param name
- * @param columnDataType
+ * @param name           The SQL name of this column
+ * @param isKey          True if the column is a key column of the containing data file
+ * @param columnDataType Column data type
  */
 abstract class ColumnType
 (
   val name: String,
+  val isKey: Boolean,
   val columnDataType: ColumnDataType
 ) {
+  def this(name: String, columnDataType: ColumnDataType) = {
+    this(name, false, columnDataType)
+  }
+
   val sqlType: String = columnDataType.sqlType
 
   /**
    * Used for construct schema
    */
   val structField: StructField = DataTypes.createStructField(name, columnDataType.dataType, true)
-
-  def isKey: Boolean = _isKey
 
   def addColumnValidator(validator: ColumnValidator): mutable.Seq[ColumnValidator] = {
     _sqlCodeUpdated = false
@@ -79,7 +83,6 @@ abstract class ColumnType
   override def toString: String = name
 
   // Private members
-  private var _isKey: Boolean = false
   private val _columnValidators: mutable.Buffer[ColumnValidator] = mutable.Buffer[ColumnValidator]()
   private var _sqlCodeUpdated: Boolean = false
   private var _sqlCode: String = _
