@@ -17,12 +17,12 @@
 package sparkDS.logicSchema.dataSpec.sysColumnTypes
 
 import org.apache.spark.sql.types.DataTypes
-import sparkDS.logicSchema.dataSpec.{ColumnType, ColumnDataType}
+import sparkDS.logicSchema.dataSpec.{ColumnDataType, ColumnType}
 
-abstract class NullColumnType
+abstract class ByteColumnType
 (
   name: String,
   isKey: Boolean
-) extends ColumnType(name, isKey, new ColumnDataType("null", DataTypes.NullType)) {
+) extends ColumnType(name, isKey, ColumnDataType("tinyint", DataTypes.ByteType)) {
   def this(name: String) = this(name, false)
 }

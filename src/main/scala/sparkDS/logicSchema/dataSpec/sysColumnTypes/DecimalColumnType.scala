@@ -24,6 +24,6 @@ abstract class DecimalColumnType
 (
   name: String,
   isKey: Boolean
-) extends ColumnType(name, isKey, new ColumnDataType("decimal", DataTypes.createDecimalType())) {
+) extends ColumnType(name, isKey, ColumnDataType("decimal", DataTypes.createDecimalType())) {
   def this(name: String) = this(name, false)
 }

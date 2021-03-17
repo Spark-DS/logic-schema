@@ -23,6 +23,6 @@ abstract class DoubleColumnType
 (
   name: String,
   isKey: Boolean
-) extends ColumnType(name, isKey, new ColumnDataType("double", DataTypes.DoubleType)) {
+) extends ColumnType(name, isKey, ColumnDataType("double", DataTypes.DoubleType)) {
   def this(name: String) = this(name, false)
 }

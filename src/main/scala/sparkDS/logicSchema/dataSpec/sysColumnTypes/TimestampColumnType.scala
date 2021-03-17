@@ -23,6 +23,6 @@ abstract class TimestampColumnType
 (
   name: String,
   isKey: Boolean
-) extends ColumnType(name, isKey, new ColumnDataType("timestamp", DataTypes.TimestampType)) {
+) extends ColumnType(name, isKey, ColumnDataType("timestamp", DataTypes.TimestampType)) {
   def this(name: String) = this(name, false)
 }

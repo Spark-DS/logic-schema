@@ -23,6 +23,6 @@ abstract class StringColumnType
 (
   name: String,
   isKey: Boolean
-) extends ColumnType(name, isKey, new ColumnDataType("string", DataTypes.StringType)) {
+) extends ColumnType(name, isKey, ColumnDataType("string", DataTypes.StringType)) {
   def this(name: String) = this(name, false)
 }

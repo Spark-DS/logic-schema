@@ -19,6 +19,7 @@ package sparkDS.logicSchema.dataSpec
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.functions.expr
 import org.apache.spark.sql.types._
+import sparkDS.logicSchema.dataTypeComparison.{ComparisonResult, SchemaComparison}
 import sparkDS.logicSchema.dataValidation.RecordValidator
 
 import scala.collection.mutable
@@ -31,12 +32,23 @@ abstract class DataFile
   val schema: StructType = StructType(columns.map(col => col.structField))
 
   /**
+   * Compare the schema of this file to the other schema.
+   *
+   * @param otherSchemaName The name of the other schema, it will appears in the difference details.
+   * @param otherSchema     The other schema
+   * @return
+   */
+  def validateSchema(otherSchemaName: String, otherSchema: StructType): ComparisonResult = {
+    SchemaComparison.compareSchema(s"${name}_Schema", schema, otherSchemaName, otherSchema)
+  }
+
+  /**
    * Add column logic_validation_messages to the input data frame.
    * Client code then can get the validation result by selecting row with non-empty logic_validation_messages.
    *
    * @param dataframe The data frame to be validated
    */
-  def validate(dataframe: DataFrame): DataFrame = {
+  def validateData(dataframe: DataFrame): DataFrame = {
     dataframe.withColumn("logic_validation_result", expr(s"filter(${sqlValidationCode()}, msg -> isnotnull(msg))"))
   }
 

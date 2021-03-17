@@ -23,6 +23,6 @@ abstract class FloatColumnType
 (
   name: String,
   isKey: Boolean
-) extends ColumnType(name, isKey, new ColumnDataType("float", DataTypes.FloatType)) {
+) extends ColumnType(name, isKey, ColumnDataType("float", DataTypes.FloatType)) {
   def this(name: String) = this(name, false)
 }

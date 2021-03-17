@@ -3,10 +3,7 @@ package sparkDS.logicSchema.dataSpec
 import com.typesafe.scalalogging._
 import org.apache.spark.sql.types.DataType
 
-class ColumnDataType(val sqlType: String, val dataType: DataType)
-
-object ColumnDataType extends LazyLogging {
-
+class ColumnDType(val sqlType: String, val dataType: DataType) {
   /*
    Refer
      org.apache.spark.sql.catalyst.analysis.FunctionRegistry
@@ -24,24 +21,14 @@ object ColumnDataType extends LazyLogging {
       castAlias("binary", BinaryType),
       castAlias("string", StringType),
    */
-  def apply(sqlType: String, dataType: DataType): ColumnDataType = {
     val isValidType = sqlType.replaceAll(" ", "") match {
       case "null" | "boolean" | "tinyint" | "smallint" | "int" | "bigint" | "float" | "double" | "decimal" | "date" | "timestamp" | "binary" | "string" => true
-      case st if st.startsWith("decimal(") && st.endsWith(")") => {
-        val parameters = st.substring(8, st.length - 1)
-        parameters.matches("\\d*,\\d*") && {
-          val tokenized = parameters.split(",")
-          tokenized(0).toInt >= tokenized(1).toInt
-        }
-      }
+      case st if st.startsWith("decimal(") && st.endsWith(")") && st.substring(8, st.length - 1).matches("\\d*,\\d*") => true
       case _ => false
     }
     if (!isValidType) {
-      val msg = s"Invalid sqlType=$sqlType"
-      val exception = new AnalysisException(msg)
-      Logger[this.type].error(msg, exception)
+      val exception = new RuntimeException(s"Invalid sqlType=$sqlType")
+      Logger[this.type].error(s"Invalid sqlType=$sqlType", exception)
       throw exception
     }
-    new ColumnDataType(sqlType, dataType)
-  }
 }
