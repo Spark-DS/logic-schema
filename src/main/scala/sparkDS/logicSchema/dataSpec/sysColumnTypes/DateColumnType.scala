@@ -23,6 +23,6 @@ abstract class DateColumnType
 (
   name: String,
   isKey: Boolean
-) extends ColumnType(name, isKey, new ColumnDataType("date", DataTypes.DateType)) {
+) extends ColumnType(name, isKey, ColumnDataType("date", DataTypes.DateType)) {
   def this(name: String) = this(name, false)
 }

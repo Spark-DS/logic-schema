@@ -23,6 +23,6 @@ abstract class LongColumnType
 (
   name: String,
   isKey: Boolean
-) extends ColumnType(name, isKey, new ColumnDataType("long", DataTypes.LongType)) {
+) extends ColumnType(name, isKey, ColumnDataType("bigint", DataTypes.LongType)) {
   def this(name: String) = this(name, false)
 }

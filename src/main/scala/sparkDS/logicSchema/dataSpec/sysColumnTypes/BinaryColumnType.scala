@@ -23,6 +23,6 @@ abstract class BinaryColumnType
 (
   name: String,
   isKey: Boolean
-) extends ColumnType(name, isKey, new ColumnDataType("binary", DataTypes.BinaryType)) {
+) extends ColumnType(name, isKey, ColumnDataType("binary", DataTypes.BinaryType)) {
   def this(name: String) = this(name, false)
 }

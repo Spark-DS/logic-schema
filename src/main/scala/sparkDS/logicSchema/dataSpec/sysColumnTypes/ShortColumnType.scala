@@ -23,6 +23,6 @@ abstract class ShortColumnType
 (
   name: String,
   isKey: Boolean
-) extends ColumnType(name, isKey, new ColumnDataType("short", DataTypes.ShortType)) {
+) extends ColumnType(name, isKey, ColumnDataType("smallint", DataTypes.ShortType)) {
   def this(name: String) = this(name, false)
 }
