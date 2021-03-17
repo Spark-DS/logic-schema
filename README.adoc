@@ -6,3 +6,5 @@ Spark-DS/logic-schema follows the principal of code as specification and configu
 * Specify constraints;
 * Compare Schemas;
 * Validate data against schema.
+
+For examples of using this library, please refer https://github.com/Spark-DS/logic-schema-demo[logic-schema-demo]
