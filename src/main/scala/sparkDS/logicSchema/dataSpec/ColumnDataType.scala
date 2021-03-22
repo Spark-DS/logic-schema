@@ -28,7 +28,7 @@ object ColumnDataType extends LazyLogging {
     val isValidType = sqlType.replaceAll(" ", "") match {
       case "null" | "boolean" | "tinyint" | "smallint" | "int" | "bigint" | "float" | "double" | "decimal" | "date" | "timestamp" | "binary" | "string" => true
       // Wait for Scala 2.13
-      case s"decimal($precision,$scale)" => precision.toInt >= scale.toInt
+      // case s"decimal($precision,$scale)" => precision.toInt >= scale.toInt
       case st if st.startsWith("decimal(") && st.endsWith(")") => {
         val parameters = st.substring(8, st.length - 1)
         parameters.matches("\\d*,\\d*") && {
